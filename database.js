@@ -11,12 +11,15 @@ const path = require('path');
 const fs = require('fs');
 
 // Auto-bikin folder data/ kalo belum ada, biar ga error pas pertama kali dijalanin
-const dataDir = path.join(__dirname, 'data');
+const localDatabasePath = path.join(__dirname, 'data', 'seminar.db');
+const defaultDatabasePath = process.env.VERCEL ? path.join('/tmp', 'seminar.db') : localDatabasePath;
+const databasePath = process.env.DATABASE_PATH || defaultDatabasePath;
+const dataDir = path.dirname(databasePath);
 if (!fs.existsSync(dataDir)) {
   fs.mkdirSync(dataDir, { recursive: true });
 }
 
-const db = new Database(path.join(dataDir, 'seminar.db'));
+const db = new Database(databasePath);
 
 // CREATE TABLE IF NOT EXISTS = aman dijalanin berkali-kali,
 // kalo tabelnya udah ada, baris ini di-skip aja (ga error).

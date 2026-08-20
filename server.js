@@ -25,7 +25,12 @@ app.use('/api', adminRoutes);
 app.use('/api', loginRoutes); 
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`✅ Server jalan di http://localhost:${PORT}`);
-  console.log(`   Halaman admin: http://localhost:${PORT}/admin.html`);
-});
+
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`Server jalan di http://localhost:${PORT}`);
+    console.log(`Halaman admin: http://localhost:${PORT}/admin.html`);
+  });
+}
+
+module.exports = app;

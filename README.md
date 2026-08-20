@@ -38,6 +38,21 @@ seminar-ticket-app/
    ```
 5. Buka `http://localhost:3000` di browser
 
+## Deploy ke Vercel
+
+Repository ini sudah punya `vercel.json`, jadi bisa di-deploy langsung:
+
+1. Buka https://vercel.com/new dan import repository `Qretz/Ticketing-seminar`
+2. Framework Preset pilih **Other**
+3. Biarkan Build Command dan Output Directory kosong
+4. Tambahkan semua variable dari `.env.example` di bagian **Environment Variables**
+5. Klik **Deploy**
+
+Catatan penting: Vercel memakai filesystem sementara. Saat berjalan di Vercel,
+SQLite otomatis memakai `/tmp/seminar.db`, tetapi data dapat hilang saat function
+restart atau berpindah instance. Untuk data registrasi production, gunakan database
+eksternal seperti Turso/libSQL, Neon PostgreSQL, atau Supabase dan ubah `database.js`.
+
 ## Setup `.env` — 3 Hal yang WAJIB Diisi
 
 ### 1. Email (buat kirim kode OTP)
