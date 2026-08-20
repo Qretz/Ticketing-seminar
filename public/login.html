@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Login</h1>
+
+    <!-- STEP 1: masukin email yang dipakai waktu daftar -->
+    <form id="loginForm" class="card">
+      <label for="email">Email yang dipakai waktu daftar</label>
+      <input type="email" id="email" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password">
+      <p class="note">Punya password? Login langsung. Kosongin aja kalo mau pake kode OTP.</p>
+
+      <button type="submit" id="otpLoginBtn">Kirim Kode Login</button>
+      <button type="button" id="passwordLoginBtn" class="secondary">Login dengan Password</button>
+      <p id="loginError" class="error"></p>
+    </form>
+
+    <!-- STEP 2: verifikasi kode OTP — disembunyiin dulu sampe step 1 sukses -->
+    <form id="loginOtpForm" class="card hidden">
+      <p>Kode login udah dikirim ke email kamu. Cek inbox (atau folder spam) ya.</p>
+      <label for="otp">Kode Verifikasi (6 digit)</label>
+      <input type="text" id="otp" maxlength="6" inputmode="numeric" required>
+      <button type="submit">Login</button>
+      <button type="button" id="resendBtn" class="secondary">Kirim Ulang Kode</button>
+      <p id="otpError" class="error"></p>
+    </form>
+
+    <p class="auth-switch">Belum punya akun? <a href="index.html">Daftar di sini</a></p>
+  </div>
+
+  <script src="js/login.js"></script>
+</body>
+</html>

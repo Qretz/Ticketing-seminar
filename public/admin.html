@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — Konfirmasi Pembayaran</title>
+<link rel="stylesheet" href="css/style.css">
+<style>.container { max-width: 800px; }</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Admin: Daftar Order</h1>
+    <div class="card">
+      <label for="adminPassword">Password Admin</label>
+      <input type="password" id="adminPassword">
+      <button id="loadBtn">Tampilkan Order</button>
+    </div>
+    <table id="ordersTable" class="hidden">
+      <thead>
+        <tr><th>Nama</th><th>Email</th><th>Paket</th><th>Harga</th><th>Status</th><th>Aksi</th></tr>
+      </thead>
+      <tbody id="ordersBody"></tbody>
+    </table>
+  </div>
+  <script src="js/admin.js"></script>
+</body>
+</html>
